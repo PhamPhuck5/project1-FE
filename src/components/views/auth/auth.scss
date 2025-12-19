@@ -1,0 +1,118 @@
+@use "../../../style/variables" as *;
+@use "sass:color";
+
+.auth-background {
+  div {
+    margin: 0;
+    padding: 0;
+  }
+
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  background-color: $footer-container;
+
+  .auth-container {
+    width: 600px;
+    max-width: 100%;
+    padding: 30px;
+    font-size: medium;
+
+    .auth-content {
+      background-color: $common-white;
+      padding: 30px 10px;
+
+      lable {
+        padding-top: 2em;
+      }
+
+      span {
+        background-color: transparent;
+      }
+
+      .form-control {
+        border-left: 0px;
+      }
+
+      i {
+        opacity: 0.3;
+      }
+
+      .forgot-password {
+        padding: 10px;
+        font-size: small;
+      }
+
+      .request {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        div {
+          text-align: center;
+          height: 3em;
+          display: block;
+          padding: 2px;
+          border: none;
+          border-radius: 5px;
+          margin: 10px;
+
+          display: flex;
+          justify-content: center;
+        }
+
+        .div-sendrequest {
+          background-image: linear-gradient(
+            to right,
+            $common-error 0%,
+            $common-orange 51%,
+            $colorsub 100%
+          );
+          color: $common-white;
+
+          button {
+            width: 90%;
+            background-color: transparent;
+            border: none;
+            color: $common-white;
+          }
+        }
+
+        .div-facebook-auth {
+          background-image: linear-gradient(
+            to right,
+            $colormain 0%,
+            $common-btn-confirm 51%,
+            color.scale($colormain, $lightness: 30%) 100%
+          ) !important;
+        }
+
+        a.button-like {
+          color: $common-white;
+          text-decoration: none;
+          font-weight: bold;
+          text-align: center;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .btn-auth,
+    .btn-auth-active {
+      width: 100%;
+      border: none;
+      color: $text-in-light;
+      background-color: transparent;
+      font-size: medium;
+      padding: 10px;
+    }
+
+    .btn-auth-active {
+      color: $common-white;
+      background-color: $colormain;
+    }
+  }
+}

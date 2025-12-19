@@ -1,0 +1,89 @@
+@use "sass:color";
+
+$colormain: #3a6ea5;
+$common-btn-confirm: #1b65c1;
+$common-white: #ffffff;
+$input-focus: #ffb347;
+$text-in-light: #1f2937;
+
+.create-group-modal {
+  .modal-content {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .custom-modal-header {
+    background-color: $colormain;
+    color: $common-white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+  }
+
+  .modal-body {
+    padding: 20px 25px;
+    color: $text-in-light;
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        color: $colormain;
+      }
+
+      .input-group-text {
+        background-color: rgba($colormain, 0.1);
+        border-color: #ced4da;
+        color: $colormain;
+        width: 45px;
+        justify-content: center;
+      }
+
+      .form-control {
+        &:focus {
+          border-color: $input-focus;
+          box-shadow: 0 0 0 0.2rem rgba($input-focus, 0.25);
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: none;
+    padding-bottom: 20px;
+    justify-content: center;
+
+    .btn-confirm {
+      background-color: $common-btn-confirm;
+      border: none;
+      padding: 10px 30px;
+      font-weight: 600;
+      transition: all 0.2s;
+      width: 100%;
+      max-width: 200px;
+
+      &:hover {
+        background-color: color.adjust($common-btn-confirm, $lightness: -10%);
+      }
+
+      &:disabled {
+        background-color: #ccc;
+      }
+    }
+  }
+}

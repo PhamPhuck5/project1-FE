@@ -1,0 +1,29 @@
+@use "sass:color";
+
+$base-size: 16px;
+$lh: 1.313;
+$fontmain: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$colormain: #3a6ea5;
+$colorsub: #e4a11b;
+$color-header: #184e77;
+$common-text-color: #f9fafb;
+$common-btn-confirm: #1b65c1;
+$common-btn-deny: #d18c1d;
+$common-error: #f25c54;
+$common-notify: #8cf2b1;
+$common-green: #39d98a;
+$common-red: #e63946;
+$common-white: #ffffff;
+$common-orange: #ffb347;
+$border: #d1d5db;
+$text-in-light: #1f2937;
+
+$input-focus: #ffb347;
+
+$footer-container: #f3f4f6;
+$footer-text: #374151;
+$footer-next-disable: #d1d5db;
+
+$box-shadow-color: #0000004d;

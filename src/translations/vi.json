@@ -1,0 +1,117 @@
+{
+  "city": {
+    "HaNoi": "TP Hà Nội",
+    "HoChiMinh": "TP Hồ Chí Minh",
+    "AnGiang": "Tỉnh An Giang",
+    "DongNai": "Tỉnh Đồng Nai",
+    "KhanhHoa": "Tỉnh Khánh Hòa"
+  },
+  "cinema": {
+    "HaNoi": {
+      "BetaThanhXuan": "Beta Thanh Xuân",
+      "BetaMyDinh": "Beta Mỹ Đình",
+      "BetaDanPhuong": "Beta Đan Phượng",
+      "BetaGiaiPhong": "Beta Giải Phóng",
+      "BetaXuanThuy": "Beta Xuân Thủy",
+      "BetaTaySon": "Beta Tây Sơn"
+    },
+    "HoChiMinh": {
+      "BetaQuangTrung": "Beta Quang Trung",
+      "BetaUngVanKhiem": "Beta Úng Văn Khiêm",
+      "BetaTranQuangKhai": "Beta Trần Quang Khải",
+      "BetaEmpireBinhDuong": "Beta Empire Bình Dương",
+      "BetaTanUyen": "Beta Tân Uyên",
+      "BetaHoTram": "Beta Hồ Tràm"
+    },
+    "AnGiang": {
+      "BetaTRMallPhuQuoc": "Beta TRMall Phú Quốc"
+    },
+    "DongNai": {
+      "BetaBienHoa": "Beta Biên Hòa",
+      "BetaLongKhanh": "Beta Long Khánh"
+    },
+    "KhanhHoa": {
+      "BetaKhanhHoa": "Beta Khánh Hòa"
+    }
+  },
+
+  "headerlinks": {
+    "moviesscheduke": "LỊCH CHIẾU THEO RẠP",
+    "movies": "PHIM",
+    "theaters": "RẠP",
+    "ticketprices": "GIÁ VÉ",
+    "newsandoffers": "TIN MỚI VÀ ƯU ĐÃI",
+    "franchise": "NHƯỢNG QUYỀN",
+    "membership": "THÀNH VIÊN"
+  },
+
+  "footerlinks": {
+    "recruitment": "Tuyển dụng",
+    "aboutus": "Giới thiệu",
+    "contact": "Liên hệ",
+    "faq": "F.A.Q",
+    "socialactivities": "Hoạt động xã hội",
+    "termsofuse": "Điều khoản sử dụng",
+    "paymentrefundpolicy": "Chính sách thanh toán, đổi trả - hoàn vé",
+    "advertisingcontact": "Liên hệ quảng cáo",
+    "privacypolicy": "Điều khoản bảo mật",
+    "onlinebookingguide": "Hướng dẫn đặt vé online",
+
+    "betatheaters": "CỤM RẠP BETA",
+    "contactus": "KẾT NỐI VỚI CHÚNG TÔI",
+
+    "contacthead": "LIÊN HỆ",
+    "betamediajsc": "CÔNG TY CỔ PHẦN BETA MEDIA",
+    "businessregistration": "Giấy chứng nhận ĐKKD số: 0106633482 - Đăng ký lần đầu ngày 08/09/2014 tại Sở Kế hoạch và Đầu tư Thành phố Hà Nội",
+    "businessaddress": "Địa chỉ trụ sở: Tầng 3, số 595, đường Giải Phóng, phường Giáp Bát, quận Hoàng Mai, thành phố Hà Nội",
+    "foradver": "Liên hệ quảng cáo:",
+    "forbus": "Liên hệ hợp tác kinh doanh:"
+  },
+  "common": {
+    "director": "Đạo diễn",
+    "cast": "Diễn viên",
+    "language": "Ngôn ngữ",
+    "releasedate": "Ngày khởi chiếu",
+    "genre": "Thể loại",
+    "runningtime": "Thời lượng",
+    "commingsoon": "PHIM SẮP CHIẾU",
+    "nowshowing": "PHIM ĐANG CHIẾU",
+    "sneakshow": "SUẤT CHIẾU ĐẶC BIỆT",
+    "booking": "MUA VÉ",
+    "minute": "phút",
+    "2dsubtitle": "2D PHỤ ĐỀ",
+    "emptyseat": "ghế trống",
+    "youarebooking": "BẠN ĐANG ĐẶT VÉ XEM PHIM",
+    "screeningtheater": "rạp chiếu",
+    "screeningdate": "ngày chiếu",
+    "screeningtime": "giờ chiếu",
+    "screeningroom": "phòng chiếu",
+    "ok": "Đồng ý",
+    "login": "đăng nhập",
+    "register": "đăng kí",
+    "forgotpassword": "lấy lại mật khẩu",
+    "totalmoney": "tổng tiền",
+    "hello": "Xin chào: ",
+    "remaintime": "Thời gian còn lại: ",
+    "pricetable": "bảng giá vé của",
+    "paymentInfo": "Thông tin thanh toán",
+    "fullname": "Họ tên: ",
+    "phonenumber": "Số điện thoại: ",
+    "email": "Email: ",
+    "comboname": "tên combo ",
+    "description": "mô tả ",
+    "quantity": "số lượng ",
+    "continue": "tiếp túc",
+    "turnback": "quay lại",
+
+    "seat": {
+      "unselected": "ghế trống",
+      "selected": "ghế đã được chọn",
+      "onhold": "ghế đang được giữ",
+      "bought": "ghế đã được mua",
+      "normal": "ghế thường",
+      "vip": "ghế vip",
+      "couple": "ghế đôi"
+    }
+  }
+}

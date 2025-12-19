@@ -1,0 +1,51 @@
+{
+  "name": "react-prj",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@formatjs/intl-pluralrules": "^5.4.4",
+    "@formatjs/intl-relativetimeformat": "^11.4.11",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "axios": "^1.10.0",
+    "bootstrap": "^5.3.7",
+    "dotenv": "^17.0.1",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "flatpickr": "^4.6.13",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-custom-scrollbars-2": "^4.5.0",
+    "react-dom": "^18.3.1",
+    "react-flatpickr": "^4.0.11",
+    "react-intl": "^7.1.11",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.3",
+    "react-toastify": "^11.0.5",
+    "redux": "^5.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-state-sync": "^3.1.4",
+    "redux-thunk": "^3.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "sass": "^1.89.2",
+    "vite": "^7.0.0"
+  }
+}

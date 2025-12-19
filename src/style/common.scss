@@ -1,0 +1,39 @@
+@use "variables" as variable;
+
+.text-center {
+  text-align: center !important;
+}
+.bold {
+  font-weight: bold;
+}
+.text-button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  color: variable.$color-header;
+
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.on-hover-cursor:hover {
+  cursor: pointer;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+}
+
+.ellipsis-2-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* số dòng tối đa */
+  overflow: hidden;
+}
+s {
+  text-decoration: none !important;
+}

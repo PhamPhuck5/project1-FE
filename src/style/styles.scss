@@ -1,0 +1,12 @@
+@use "variables" as *;
+@use "sass:math";
+@use "bootstrap/scss/bootstrap";
+
+// $fa-font-path: "../../node_modules/@fortawesome/fontawesome-free/webfonts";
+
+// 👇 KHÔNG dùng as *, để tránh đụng $fa-font-path
+@use "@fortawesome/fontawesome-free/scss/fontawesome";
+@use "@fortawesome/fontawesome-free/scss/solid";
+@use "@fortawesome/fontawesome-free/scss/brands";
+
+@use "base" as *;

@@ -1,0 +1,114 @@
+{
+  "city": {
+    "HaNoi": "Ha Noi",
+    "HoChiMinh": "Ho Chi Minh",
+    "AnGiang": "An Giang",
+    "DongNai": "Dong Nai",
+    "KhanhHoa": "Khanh Hoa"
+  },
+  "cinema": {
+    "HaNoi": {
+      "BetaThanhXuan": "Beta Thanh Xuan",
+      "BetaMyDinh": "Beta My Dinh",
+      "BetaDanPhuong": "Beta Dan Phuong",
+      "BetaGiaiPhong": "Beta Giai Phong",
+      "BetaXuanThuy": "Beta Xuan Thuy",
+      "BetaTaySon": "Beta Tay Son"
+    },
+    "HoChiMinh": {
+      "BetaQuangTrung": "Beta Quang Trung",
+      "BetaUngVanKhiem": "Beta Ung Van Khiem",
+      "BetaTranQuangKhai": "Beta Tran Quang Khai",
+      "BetaEmpireBinhDuong": "Beta Empire Binh Duong",
+      "BetaTanUyen": "Beta Tan Uyen",
+      "BetaHoTram": "Beta Ho Tram"
+    },
+    "AnGiang": {
+      "BetaTRMallPhuQuoc": "Beta TRMall Phu Quoc"
+    },
+    "DongNai": {
+      "BetaBienHoa": "Beta Bien Hoa",
+      "BetaLongKhanh": "Beta Long Khanh"
+    },
+    "KhanhHoa": {
+      "BetaKhanhHoa": "Beta Khanh Hoa"
+    }
+  },
+  "headerlinks": {
+    "moviesscheduke": "MOVIES SCHEDULE",
+    "movies": "MOVIES",
+    "theaters": "THEATERS",
+    "ticketprices": "TICKET PRICES",
+    "newsandoffers": "NEWS AND OFFERS",
+    "franchise": "FRANCHISE",
+    "membership": "MEMBERSHIP"
+  },
+  "footerlinks": {
+    "recruitment": "Recruitment",
+    "aboutus": "About Us",
+    "contact": "Contact",
+    "faq": "F.A.Q",
+    "socialactivities": "Social Activities",
+    "termsofuse": "Terms of Use",
+    "paymentrefundpolicy": "Payment, Return & Refund Policy",
+    "advertisingcontact": "Advertising Contact",
+    "privacypolicy": "Privacy Policy",
+    "onlinebookingguide": "Online Booking Guide",
+
+    "betatheaters": "BETA THEATERS",
+    "contactus": "CONTACT US",
+
+    "contacthead": "CONTACT",
+    "betamediajsc": "BETA MEDIA JSC",
+    "businessregistration": "Business Registration Certificate No: 0106633482 - First registered on September 8, 2014 at Hanoi Department of Planning and Investment",
+    "businessaddress": "Office Address: 3nd Floor, No. 595, Giai Phong St., Giap Bat Ward, Hoang Mai Dist., Ha Noi",
+    "foradver": "For advertising:",
+    "forbus": "For business inquiries:"
+  },
+  "common": {
+    "director": "Director",
+    "cast": "Cast",
+    "genre": "Genre",
+    "runningtime": "Running time",
+    "language": "Language",
+    "releasedate": "Release date",
+    "commingsoon": "COMING SOON",
+    "nowshowing": "NOW SHOWING",
+    "sneakshow": "SNEAK SHOW",
+    "booking": "BOOKING",
+    "minute": "minute",
+    "2dsubtitle": "2D SUBTITLE",
+    "emptyseat": "empty",
+    "youarebooking": "BOOKING MOVIE TICKETS",
+    "screeningtheater": "cinema",
+    "screeningdate": "date",
+    "screeningtime": "time",
+    "screeningroom": "room",
+    "ok": "Ok",
+    "login": "login",
+    "register": "register",
+    "forgotpassword": "forgot password",
+    "totalmoney": "total money",
+    "hello": "Hello: ",
+    "remaintime": "Remain time: ",
+    "pricetable": "table of price of",
+    "paymentInfo": "Payment info",
+    "fullname": "Fullname: ",
+    "phonenumber": "Phonenumber: ",
+    "email": "Email: ",
+    "comboname": "combo ",
+    "description": "description",
+    "quantity": "quantity",
+    "continue": "continue",
+    "turnback": "turn back",
+    "seat": {
+      "unselected": "unselected",
+      "selected": "selected",
+      "onhold": "onhold",
+      "bought": "bought",
+      "normal": "normal seat",
+      "vip": "vip seat",
+      "couple": "couple seat"
+    }
+  }
+}
