@@ -25,10 +25,13 @@ const Sidebar = () => {
 
   const fetchMyGroups = async () => {
     try {
-      const res = await api.get(`/api/group/my-groups`, {
+      console.log("start fetch user's group");
+
+      const res = await api.get(`/api/group/groups`, {
         signal: abortControllerRef.current.signal,
       });
-
+      console.log(res.data.data);
+      console.log("fetch user's group success");
       const groupData = res.data.data || res.data;
       setGroups(Array.isArray(groupData) ? groupData : []);
     } catch (err) {

@@ -49,7 +49,6 @@ const CreateGroupModal = forwardRef(({ onSuccess }, ref) => {
         description: groupData.description,
         createDate: new Date(),
       };
-
       const res = await api.post("/api/group/create", payload);
 
       if (res) {

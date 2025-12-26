@@ -1,10 +1,10 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import moment from "moment";
 import _ from "lodash";
-import { useSelector } from "react-redux";
 import axios from "axios";
 import api from "../../../axios.js";
 
+import EventPostModal from "../../Modal/postModal.jsx";
 import Sidebar from "./sideBar.jsx";
 import CreateTaskModal from "../../Modal/addTaskModal.jsx";
 import "./home.scss";
@@ -138,6 +138,7 @@ export default function Home() {
   const [rawEvents, setRawEvents] = useState([]);
   const createTaskModalRef = useRef(null);
   const scrollRef = useRef(null);
+  const eventPostModalRef = useRef(null);
 
   const weekDays = useMemo(() => {
     const today = moment();
@@ -147,6 +148,7 @@ export default function Home() {
     }
     return days;
   }, []);
+
   const fetchTasks = async (offset = 0) => {
     const controller = new AbortController();
 
@@ -256,7 +258,7 @@ export default function Home() {
           ev.length
         }m)`}
         onClick={() => {
-          //
+          () => handleOpenGallery(ev.id);
         }}
       >
         <div className="event-time">
@@ -266,6 +268,13 @@ export default function Home() {
         <div className="event-title">{ev.name}</div>
       </div>
     ));
+  };
+
+  const handleOpenGallery = (eventId) => {
+    // Gọi hàm show() và truyền eventId vào
+    if (eventPostModalRef.current) {
+      eventPostModalRef.current.show(eventId);
+    }
   };
 
   return (
@@ -311,6 +320,14 @@ export default function Home() {
       <CreateTaskModal
         ref={createTaskModalRef}
         onSuccess={() => fetchTasks(0)}
+      />
+      <EventPostModal
+        ref={eventPostModalRef}
+        onUploadSuccess={() => {
+          console.log(
+            "Ảnh đã được upload thành công, load lại dữ liệu nếu cần!"
+          );
+        }}
       />
     </div>
   );
