@@ -61,10 +61,12 @@ const Login = () => {
         <div className="col-md-6 col-12 div-sendrequest">
           <button
             onClick={async () => {
-              let name = (await login(email, password)).name;
+              let userInfo = await login(email, password);
+              let name = userInfo.name;
+              let id = userInfo.id;
               dispatch({
                 type: actionTypes.USER_LOGIN_SUCCESS,
-                userInfo: { name: name },
+                userInfo: { name: name, id: id },
               });
               navigate(-1);
             }}

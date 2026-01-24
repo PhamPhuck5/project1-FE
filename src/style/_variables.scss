@@ -27,3 +27,15 @@ $footer-text: #374151;
 $footer-next-disable: #d1d5db;
 
 $box-shadow-color: #0000004d;
+
+:root {
+  --primary: #1b65c1; // main action / buttons
+  --primary-dark: #14509a; // darker for hover/border
+  --accent: #3a6ea5; // secondary accents / headings
+  --muted: #888888; // muted text / placeholders
+  --bg: #ffffff; // default background
+  --surface: #f7f9fc; // card / sidebar background
+  --danger: #e23b3b; // destructive actions
+  --success: #28a745; // success actions
+  --text: #222222; // main text color
+}

@@ -20,11 +20,9 @@ const processEventsForLayout = (events) => {
   });
 
   const columns = [];
-  let lastEventEnding = null;
 
   const packedEvents = sortedEvents.map((ev) => {
     const start = ev.startMin;
-    const end = ev.startMin + ev.length;
 
     let placed = false;
     for (let i = 0; i < columns.length; i++) {
@@ -53,16 +51,7 @@ const processEventsForLayout = (events) => {
     return ev;
   });
 
-  // Tính toán width và left dựa trên nhóm va chạm (Cluster)
-  // Logic đơn giản: Nếu tại thời điểm T có Max N cột đang active, thì width = 100/N
-  // Tuy nhiên để UI đẹp kiểu Google, ta cần nhóm các event liên quan lại (Cluster)
-
-  // Trả về events đã có style
   return packedEvents.map((ev) => {
-    // Tìm tổng số cột max tại thời điểm diễn ra sự kiện này (đơn giản hóa)
-    // Để chính xác tuyệt đối như Google Calendar cần thuật toán đồ thị phức tạp hơn,
-    // đây là cách tiếp cận "Expand to fit"
-
     const overlaps = packedEvents.filter(
       (other) =>
         other !== ev &&
@@ -72,14 +61,10 @@ const processEventsForLayout = (events) => {
         )
     );
 
-    // Tính max colIndex trong nhóm overlap để biết tổng số chia
     let maxCols = ev.colIndex;
     overlaps.forEach((o) => {
       if (o.colIndex > maxCols) maxCols = o.colIndex;
     });
-
-    // Thêm các sự kiện có colIndex lớn hơn (kể cả không overlap trực tiếp nhưng thuộc cùng cụm visual)
-    // Đây là phần heuristic để UI không bị vỡ.
 
     const totalCols = maxCols + 1;
     const width = 100 / totalCols;
@@ -88,7 +73,7 @@ const processEventsForLayout = (events) => {
     return {
       ...ev,
       style: {
-        top: `${ev.startMin}px`, // 1min = 1px height
+        top: `${ev.startMin}px`,
         height: `${ev.length}px`,
         left: `${left}%`,
         width: `${width}%`,
@@ -105,13 +90,7 @@ function splitTaskIfCrossNoon(task) {
   noon.setHours(NOON_HOUR, 0, 0, 0);
 
   if (start >= noon || end <= noon) {
-    return [
-      {
-        ...task,
-        start,
-        end,
-      },
-    ];
+    return [{ ...task, start, end }];
   }
 
   return [
@@ -150,8 +129,6 @@ export default function Home() {
   }, []);
 
   const fetchTasks = async (offset = 0) => {
-    const controller = new AbortController();
-
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - 2);
     const endDate = new Date();
@@ -175,7 +152,7 @@ export default function Home() {
       setRawEvents(events);
     } catch (err) {
       if (axios.isCancel(err)) return;
-      console.error("error: ", err.message);
+      console.error(err);
     }
   };
 
@@ -187,57 +164,20 @@ export default function Home() {
   }, []);
 
   const handleOpenCreateModal = () => {
-    if (createTaskModalRef.current) {
-      createTaskModalRef.current.show();
-    }
+    createTaskModalRef.current?.show();
   };
 
-  const renderSidebar = () => (
-    <div className="sidebar-container">
-      <h3 style={{ color: "#3a6ea5", fontWeight: "bold" }}>My Calendar</h3>
-      <div style={{ marginTop: "20px" }}>
-        <button
-          className="btn btn-primary w-100"
-          style={{ backgroundColor: "#1b65c1" }}
-          onClick={handleOpenCreateModal}
-        >
-          <i className="fa-solid fa-plus"></i> Create Task
-        </button>
+  const renderTimeSlots = () =>
+    Array.from({ length: 24 }, (_, i) => (
+      <div key={i} className="hour-line"></div>
+    ));
+
+  const renderTimeLabels = () =>
+    Array.from({ length: 24 }, (_, i) => (
+      <div key={i} className="time-slot-label">
+        {i === 0 ? "" : `${i}:00`}
       </div>
-      <div style={{ marginTop: "20px" }}>
-        <p className="text-muted small mt-3">My Calendars</p>
-        <ul className="list-unstyled">
-          <li>
-            <input type="checkbox" checked readOnly /> Event
-          </li>
-          <li>
-            <input type="checkbox" checked readOnly /> Personal
-          </li>
-        </ul>
-      </div>
-      <Sidebar />
-    </div>
-  );
-
-  const renderTimeSlots = () => {
-    const slots = [];
-    for (let i = 0; i < 24; i++) {
-      slots.push(<div key={i} className="hour-line"></div>);
-    }
-    return slots;
-  };
-
-  const renderTimeLabels = () => {
-    const labels = [];
-    for (let i = 0; i < 24; i++) {
-      labels.push(
-        <div key={i} className="time-slot-label">
-          {i === 0 ? "" : `${i}:00`}
-        </div>
-      );
-    }
-    return labels;
-  };
+    ));
 
   const renderDayEvents = (dayMoment) => {
     const dayEvents = rawEvents
@@ -247,18 +187,13 @@ export default function Home() {
         startMin: moment(ev.date).hours() * 60 + moment(ev.date).minutes(),
       }));
 
-    const processedEvents = processEventsForLayout(dayEvents);
-
-    return processedEvents.map((ev, index) => (
+    return processEventsForLayout(dayEvents).map((ev, index) => (
       <div
-        key={`${ev.id}-${index}-${ev.date}`}
+        key={`${ev.id}-${index}`}
         className="event-card"
         style={ev.style}
-        title={`${ev.name} (${moment(ev.date).format("HH:mm")} - ${
-          ev.length
-        }m)`}
         onClick={() => {
-          () => handleOpenGallery(ev.id);
+          if (ev.connect) eventPostModalRef.current?.show(ev.connect);
         }}
       >
         <div className="event-time">
@@ -270,31 +205,18 @@ export default function Home() {
     ));
   };
 
-  const handleOpenGallery = (eventId) => {
-    // Gọi hàm show() và truyền eventId vào
-    if (eventPostModalRef.current) {
-      eventPostModalRef.current.show(eventId);
-    }
-  };
-
   return (
     <div className="homepage-wrapper">
-      {renderSidebar()}
+      <Sidebar onCreateTask={handleOpenCreateModal} reFetchTask={fetchTasks} />
 
       <div className="calendar-container">
         <div className="calendar-header">
-          {weekDays.map((day, index) => {
-            const isToday = day.isSame(moment(), "day");
-            return (
-              <div
-                key={index}
-                className={`day-column-header ${isToday ? "is-today" : ""}`}
-              >
-                <div className="day-name">{day.format("ddd")}</div>
-                <div className="day-date">{day.format("DD")}</div>
-              </div>
-            );
-          })}
+          {weekDays.map((day, index) => (
+            <div key={index} className="day-column-header">
+              <div className="day-name">{day.format("ddd")}</div>
+              <div className="day-date">{day.format("DD")}</div>
+            </div>
+          ))}
         </div>
 
         <div className="calendar-body" ref={scrollRef}>
@@ -302,33 +224,20 @@ export default function Home() {
 
           <div className="days-grid">
             <div className="grid-lines">{renderTimeSlots()}</div>
-
-            {weekDays.map((day, index) => {
-              const isToday = day.isSame(moment(), "day");
-              return (
-                <div
-                  key={index}
-                  className={`day-column ${isToday ? "is-today" : ""}`}
-                >
-                  {renderDayEvents(day)}
-                </div>
-              );
-            })}
+            {weekDays.map((day, index) => (
+              <div key={index} className="day-column">
+                {renderDayEvents(day)}
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
       <CreateTaskModal
         ref={createTaskModalRef}
         onSuccess={() => fetchTasks(0)}
       />
-      <EventPostModal
-        ref={eventPostModalRef}
-        onUploadSuccess={() => {
-          console.log(
-            "Ảnh đã được upload thành công, load lại dữ liệu nếu cần!"
-          );
-        }}
-      />
+      <EventPostModal ref={eventPostModalRef} />
     </div>
   );
 }
